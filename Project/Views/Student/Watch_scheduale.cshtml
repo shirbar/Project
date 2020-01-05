@@ -1,0 +1,65 @@
+﻿@using Project.Models;
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <style>
+        #customers {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+            #customers td, #customers th {
+                border: 1px solid #ddd;
+                padding: 8px;
+            }
+
+            #customers tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+            #customers tr:hover {
+                background-color: #ddd;
+            }
+
+            #customers th {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                text-align: left;
+                background-color: #4CAF50;
+                color: white;
+            }
+    </style>
+</head>
+<body>
+
+    <table id="customers">
+        <tr>
+            <th>Course ID</th>
+            <th>Day</th>
+            <th>Hour</th>
+            <th>Class</th>
+        </tr>
+        <tr>
+            
+
+             @foreach (Student_Course_Model x in ViewBag.CoursesList)
+             {
+                 <tr>
+                 <td>@x.courseID</td>
+                 <td>@x.Day</td>
+                 <td>@x.Hour</td>
+                 <td>@x.Class</td>
+                 </tr>
+                    
+             }
+        </table>
+
+</body>
+</html>
