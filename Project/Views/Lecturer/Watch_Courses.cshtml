@@ -42,30 +42,24 @@
     <table id="customers">
         <tr>
             <th>Course ID</th>
-            <th>Moed</th>
-            <th>Hour</th>
-            <th>Day</th>
-            <th>Month</th>
-            <th>Year</th>
-            <th>Class</th>
+
         </tr>
         <tr>
 
 
-            @foreach (ExamModel x in ViewBag.ExamsList)
+            @foreach (CourseModel x in ViewBag.ReleventCourses)
             {
-                <tr>
-                    <td>@x.CourseID</td>
-                    <td>@x.Moed</td>
-                    <td>@x.Hour</td>
-                    <td>@x.Day</td>
-                    <td>@x.Month</td>
-                    <td>@x.Year</td>
-                    <td>@x.Class</td>
-                </tr>
+            <tr>
+                @{ TempData["Course"] = x.CourseID;}
+
+                <td>@x.CourseID</td>
+
+            </tr>
+
             }
 
-        </table>
+      
+</table>
 
     </body>
 </html>

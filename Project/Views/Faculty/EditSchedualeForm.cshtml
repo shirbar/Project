@@ -1,0 +1,88 @@
+﻿@using Project.Models;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <style>
+        #customers {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+            #customers td, #customers th {
+                border: 1px solid #ddd;
+                padding: 8px;
+            }
+
+            #customers tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+            #customers tr:hover {
+                background-color: #ddd;
+            }
+
+            #customers th {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                text-align: left;
+                background-color: #4CAF50;
+                color: white;
+            }
+    </style>
+</head>
+<body>
+    <div>
+        <form action="EditSchedule" method="post">
+            <select name="courseId" id="courseId">
+                @foreach (CourseModel obj in ViewBag.AllCourses)
+                {
+                    <option> @obj.CourseID </option>
+                }
+            </select>
+            Day = <input id="day" name="day" type="text" />
+            <br />
+            Start Hour = <input id="shour" name="shour" type="time" />
+            <br />
+            End Hour = <input id="ehour" name="ehour" type="time" />
+            <br />
+            Class = <input id="Class" name="Class" type="text" />
+            <br />
+            <input id="Submit1" type="submit" value="Submit" />
+        </form>
+
+    </div>
+
+    <div>
+        <table id="Courses">
+            <tr>
+                <th>Course</th>
+                <th>Lecturer</th>
+                <th>Day</th>
+                <th>Start Hour</th>
+                <th>End Hour</th>
+                <th>Class</th>
+            </tr>
+
+            @foreach (CourseModel y in ViewBag.AllCourses)
+            {
+                <tr>
+                    <td>@y.CourseID</td>
+                    <td>@y.LecturerID </td>
+                    <td>@y.Day1</td>
+                    <td>@y.SHour1</td>
+                    <td>@y.Ehour1</td>
+                    <td>@y.Class</td>
+
+                </tr>
+            }
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,89 @@
+﻿@using Project.Models;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <style>
+        #customers {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+            #customers td, #customers th {
+                border: 1px solid #ddd;
+                padding: 8px;
+            }
+
+            #customers tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+            #customers tr:hover {
+                background-color: #ddd;
+            }
+
+            #customers th {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                text-align: left;
+                background-color: #4CAF50;
+                color: white;
+            }
+    </style>
+</head>
+<body>
+    <div>
+        <form action="EditScheduleExam" method="post">
+            <select name="courseId" id="courseId">
+                @foreach (CourseModel obj in ViewBag.AllCourses)
+                {
+                    <option> @obj.CourseID </option>
+                }
+            </select>
+            Moed = <input id="moed" name="moed" type="text" />
+            <br />
+            Class = <input id="Class" name="Class" type="text" />
+            <br />
+            *Date = <input id="date" name="date" type="date" />
+            <br />
+            Hour = <input id="hour" name="hour" type="time" />*
+
+            <br />
+            <input id="Submit1" type="submit" value="Submit" />
+        </form>
+
+    </div>
+
+    <div>
+        <table id="Courses">
+            <tr>
+                <th>CourseID</th>
+                <th>Moed</th>
+                <th>Day</th>
+                <th>Month</th>
+                <th>Year</th>
+                <th>Class</th>
+            </tr>
+
+            @foreach (ExamModel y in ViewBag.exams)
+            {
+                <tr>
+                    <td>@y.CourseID</td>
+                    <td>@y.Moed </td>
+                    <td>@y.Day</td>
+                    <td>@y.Month</td>
+                    <td>@y.Year</td>
+                    <td>@y.Class</td>
+
+                </tr>
+            }
+
+    </div>
+
+</body>
+</html>

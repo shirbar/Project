@@ -22,7 +22,19 @@ namespace Project.Controllers
                                                   in dal.StudentAndCourses
                                                   where x.StudentID.Contains(studentID1)
                                                   select x).ToList<Student_Course_Model>();
-            ViewBag.CoursesList = ourList;                                             
+
+            CoursesDal courseDal = new CoursesDal();
+            List<CourseModel> coursesList = new List<CourseModel>();
+            CourseModel helpCourse; 
+
+            foreach(Student_Course_Model x in ourList)
+            {
+                helpCourse = courseDal.Courses.Find(x.courseID);
+                if(helpCourse!=null)
+                    coursesList.Add(helpCourse);
+            }
+                
+            ViewBag.CoursesList = coursesList;                                             
             return View("Watch_scheduale");
         }
 
@@ -32,33 +44,31 @@ namespace Project.Controllers
             Student_coursesDal dal = new Student_coursesDal();
             //Export from data courses table all the courses of logged user
             //list of Student_courses_model
-            List<Student_Course_Model> Student_Courses_list = (from x
-                                                 in dal.StudentAndCourses
-                                                  where x.StudentID.Contains(LoggedUser)
-                                                  select x).ToList<Student_Course_Model>();
+            List<Student_Course_Model> Student_Courses_list = (from x in dal.StudentAndCourses
+                                                            where x.StudentID.Contains(LoggedUser)
+                                                            select x).ToList<Student_Course_Model>();
+            
+            //Create a list of Exams
+            ExamsDal examDal = new ExamsDal();
+            List<ExamModel> examsList = new List<ExamModel>();
+            ExamModel HelpExamA, HelpExamB;
 
-            //From the list above create a list of courses
-            List<string> Courseslist = new List<string>();
-
-            foreach(Student_Course_Model X in Student_Courses_list)
-                { Courseslist.Add((X.courseID).ToString()); }
-
-
-            //create list of Exams
-            ExamsDal dal2 = new ExamsDal();
-            List<ExamModel> ExamsList = new List<ExamModel>(); 
-            List<ExamModel> HelpList = new List<ExamModel>(); //temp list 
-
-            foreach (string Course in Courseslist)
+            foreach(Student_Course_Model x in Student_Courses_list)
             {
-                HelpList = ((from x in dal2.exams
-                               where x.CourseID.Contains(Course)
-                               select x).ToList<ExamModel>());
-
-                ExamsList.AddRange(HelpList);
+                string name = x.courseID;
             }
 
-            ViewBag.ExamsList = ExamsList;
+            foreach(Student_Course_Model x in Student_Courses_list)
+            {
+                HelpExamA = examDal.exams.Find(x.courseID,"A");
+                HelpExamB = examDal.exams.Find(x.courseID, "B");
+                if (HelpExamA != null)
+                    examsList.Add(HelpExamA);
+                if(HelpExamB != null)
+                    examsList.Add(HelpExamB);
+            }
+
+            ViewBag.ExamsList = examsList;
             return View("Watch_Exams");
         }
 
@@ -70,7 +80,14 @@ namespace Project.Controllers
             List<Student_Course_Model> Student_Courses_list = (from x in dal.StudentAndCourses
                                                                where x.StudentID.Contains(LoggedUser)
                                                                select x).ToList<Student_Course_Model>();
-            ViewBag.grades = Student_Courses_list;
+
+            List<Student_Course_Model> Help = new List<Student_Course_Model>();
+           foreach (Student_Course_Model x in Student_Courses_list)
+            {
+                if (x.GradeA != -1 & x.GradeB != -1)
+                    Help.Add(x);
+            }
+            ViewBag.grades = Help;
             return View("Watch_Grades");
 
         }

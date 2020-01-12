@@ -27,23 +27,34 @@ namespace Project.Controllers
         {
           
             UserDal dal = new UserDal();
- 
+            
             string name = user.FirstName.ToString();
             string ID = user.UserID.ToString();
+           // string lname = user.LastName;
             string password = user.Password.ToString();
+
             List<UserModel> usersList =
                 (from x in dal.users
                  where (x.FirstName.Equals(name) & x.UserID.Equals(ID) & x.Password.Equals(password))
                  select x).ToList<UserModel>();
 
-             TempData["loggedUser"] = usersList[0].UserID;
+            TempData["loggedUser"] = usersList[0].UserID;
             //  ViewBag.logged = usersList[0].UserID;
             Session["UserID"] = ID;
+            Session["UserName"] = name; //first name 
+                                        // Session["LastName"] = lname; //last name 
             if (usersList.Count > 0)
                 if (usersList[0].Type.Contains("student"))
                     return View("StudentPage");
+                else if (usersList[0].Type.Contains("lecturer"))
+                    return View("LecturerPage");
                 else
-                    return View("LecturerPage");          
+                {
+                    if (usersList[0].Type.Contains("faculty"))
+                        return View("FacultyPage");
+                    else
+                        return View("ErrorPage");
+                }
             else
                 return View("ErrorPage");
         }

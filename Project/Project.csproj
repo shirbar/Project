@@ -127,14 +127,19 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\FacultyController.cs" />
+    <Compile Include="Controllers\LecturerController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Dal\CourcsesDal.cs" />
     <Compile Include="Dal\ExamsDal.cs" />
     <Compile Include="Dal\Student_coursesDal.cs" />
     <Compile Include="Dal\UserDal.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CourseAssignModel.cs" />
+    <Compile Include="Models\CourseModel.cs" />
     <Compile Include="Models\ExamModel.cs" />
     <Compile Include="Models\StudentModel.cs" />
     <Compile Include="Models\Student_Course_Model.cs" />
@@ -147,7 +152,6 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="images\5.jpg" />
@@ -158,11 +162,6 @@
     <Content Include="..\.editorconfig">
       <Link>.editorconfig</Link>
     </Content>
-    <Content Include="fonts\fontawesome-webfont.eot" />
-    <Content Include="fonts\fontawesome-webfont.ttf" />
-    <Content Include="fonts\fontawesome-webfont.woff" />
-    <Content Include="fonts\fontawesome-webfont.woff2" />
-    <Content Include="fonts\FontAwesome.otf" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -174,9 +173,6 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="styles\bootstrap.css" />
-    <Content Include="styles\style.css" />
-    <Content Include="styles\touchTouch.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -188,7 +184,7 @@
     <Content Include="Views\User\UserPage.cshtml" />
     <Content Include="Views\User\Login.cshtml" />
     <Content Include="Views\User\ErrorPage.cshtml" />
-    <Content Include="Views\User\LecturerPage.cshtml" />
+    <Content Include="Views\shared\LecturerPage.cshtml" />
     <Content Include="Views\Student\First_Student_Page.cshtml" />
     <Content Include="Views\shared\StudentPage.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
@@ -197,6 +193,30 @@
     <Content Include="Views\Student\Watch_Exams.cshtml" />
     <Content Include="Views\Student\Watch_Grades.cshtml" />
     <Content Include="Views\User\newLogin.cshtml" />
+    <Content Include="Views\Lecturer\Watch_Courses.cshtml" />
+    <Content Include="Views\Lecturer\List_Of_Students.cshtml" />
+    <Content Include="Views\Lecturer\Choose_Course.cshtml" />
+    <Content Include="Views\shared\FacultyPage.cshtml" />
+    <Content Include="Views\Faculty\Cours_Registration.cshtml" />
+    <Content Include="Views\Faculty\RegistedSuccessfully.cshtml" />
+    <Content Include="Views\Faculty\Change_grades.cshtml" />
+    <Content Include="Views\Faculty\GradeTable.cshtml" />
+    <Content Include="Views\Faculty\ChangedSuccessfully.cshtml" />
+    <Content Include="Views\Faculty\EditSchedualeForm.cshtml" />
+    <Content Include="Views\Faculty\EditSuccessfully.cshtml" />
+    <Content Include="Views\Faculty\ExamsForm.cshtml" />
+    <Content Include="Views\Lecturer\Edit_Grades.cshtml" />
+    <Content Include="Views\Lecturer\SubmitGradeChanges.cshtml" />
+    <Content Include="Views\Lecturer\GradesUpdatedSuccessfully.cshtml" />
+    <Content Include="Views\Faculty\NewCourseForm.cshtml" />
+    <Content Include="Views\Faculty\AddSuccessfully.cshtml" />
+    <Content Include="Views\Lecturer\Watch_scheduale.cshtml" />
+    <Content Include="Views\Lecturer\FailedUpdateGrades.cshtml" />
+    <Content Include="Views\Faculty\RegistrationError.cshtml" />
+    <Content Include="Views\Faculty\UpdateScheFailed.cshtml" />
+    <Content Include="Views\Faculty\AddingCourseError.cshtml" />
+    <Content Include="Views\Faculty\EditExamScheError.cshtml" />
+    <Content Include="Views\Faculty\ErrorUpdateGrades.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

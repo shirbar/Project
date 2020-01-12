@@ -41,30 +41,29 @@
 
     <table id="customers">
         <tr>
-            <th>Course ID</th>
-            <th>Moed</th>
-            <th>Hour</th>
-            <th>Day</th>
-            <th>Month</th>
-            <th>Year</th>
-            <th>Class</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Student ID</th>
+            <th>Grade A</th>
+            <th> Grade B</th>
+
+            
         </tr>
         <tr>
 
-
-            @foreach (ExamModel x in ViewBag.ExamsList)
+            @foreach (Student_Course_Model x in ViewBag.Students_courses)
             {
-                <tr>
-                    <td>@x.CourseID</td>
-                    <td>@x.Moed</td>
-                    <td>@x.Hour</td>
-                    <td>@x.Day</td>
-                    <td>@x.Month</td>
-                    <td>@x.Year</td>
-                    <td>@x.Class</td>
-                </tr>
-            }
+        <tr>
+            <td>@x.FirstName</td>
+            <td>@x.LastName</td>
+            <td>@x.StudentID</td>
+            <td>@x.GradeA</td>
+            <td>@x.GradeB</td>
+         
 
+        </tr>
+
+        }
         </table>
 
     </body>

@@ -41,31 +41,35 @@
 
     <table id="customers">
         <tr>
-            <th>Course ID</th>
             <th>Moed</th>
-            <th>Hour</th>
-            <th>Day</th>
-            <th>Month</th>
-            <th>Year</th>
-            <th>Class</th>
+            <th>Grade</th>
+            @*<th>Edit</th>*@
+            <th>New Grade</th>
+
         </tr>
         <tr>
 
+            <form action="EditG" method="post">
+            <tr>
+            <td>Moed A</td>
+            <td>@ViewBag.MoedA.</td>
+            <td> <input id="Text1" name="Text1" type="number" /> </td>
+        </tr>
 
-            @foreach (ExamModel x in ViewBag.ExamsList)
-            {
-                <tr>
-                    <td>@x.CourseID</td>
-                    <td>@x.Moed</td>
-                    <td>@x.Hour</td>
-                    <td>@x.Day</td>
-                    <td>@x.Month</td>
-                    <td>@x.Year</td>
-                    <td>@x.Class</td>
-                </tr>
-            }
+        <tr>
+            <td>Moed B</td>
+            <td>@ViewBag.MoedB.</td>
+            <td> <input id="Text2" name="Text2" type="number" /> </td>
+        </tr>
+        <tr>
+            <td> Final Grade </td>
+            <td> @ViewBag.Final </td>
+            <td> <input id="final" name="final" type="number" /> </td>
+        </tr>
 
-        </table>
+    </table>
+    <input id="Submit1" type="submit" value="submit" />
+    <form/>
 
     </body>
 </html>

@@ -1,0 +1,33 @@
+﻿@using Project.Models;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit_Grades</title>
+</head>
+<body>
+    <div>
+        <center>
+            <form method="post" action="CanEditGradesCheck" onsubmit="SetData()">
+                <select name="Course" id="Course">
+                    @foreach (CourseModel obj in ViewBag.ReleventCourses)
+                    {
+                        <option> @obj.CourseID</option>
+                    }
+                </select>
+                <select name="Moed" id="Moed">
+                     <option> A </option>
+                     <option> B </option>
+                </select>
+                <input type="submit" value="submit" />
+
+             </form>
+        </center>
+    </div>
+</body>
+</html>

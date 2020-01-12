@@ -43,18 +43,20 @@
         <tr>
             <th>Course ID</th>
             <th>Day</th>
-            <th>Hour</th>
+            <th>Start Hour</th>
+            <th>End Hour</th>
             <th>Class</th>
         </tr>
         <tr>
             
 
-             @foreach (Student_Course_Model x in ViewBag.CoursesList)
+             @foreach (CourseModel x in ViewBag.CoursesList)
              {
                  <tr>
-                 <td>@x.courseID</td>
-                 <td>@x.Day</td>
-                 <td>@x.Hour</td>
+                 <td>@x.CourseID</td>
+                 <td>@x.Day1</td>
+                 <td>@x.SHour1</td>
+                 <td>@x.Ehour1</td>
                  <td>@x.Class</td>
                  </tr>
                     

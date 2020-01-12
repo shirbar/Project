@@ -1,0 +1,47 @@
+﻿@using Project.Models;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>NewCourseForm</title>
+</head>
+<body>
+    <div> 
+        <center>
+            <form method="post" action="AddNewCourse" onsubmit="SetData()">
+                <select name="lecturer" id="lecturer">
+                    @foreach (UserModel x in ViewBag.lecturers)
+                    {
+                        <option> @x.FirstName @x.LastName </option>
+                    }
+                </select>
+                <br />
+                <select name="lecturerId" id="lecturerId">
+                    @foreach (UserModel x in ViewBag.lecturers)
+                    {
+                        <option> @x.UserID </option>
+                    }
+                </select>
+                <br />
+                Course = <input id="course" name="course" type="text" />
+                <br />
+                Day = <input id="day" name="day" type="text" />
+                <br />
+                Start Hour=  <input id="shour" name="shour" type="time" />
+                <br />
+                End Hour = <input id="ehour" name="ehour" type="time" />
+                <br />
+                Class = <input id="Class" name="Class" type="text" />
+                <br />
+                <input type="submit" value="Add Course" />
+            </form>
+        </center>
+        
+    </div>
+</body>
+</html>

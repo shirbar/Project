@@ -1,0 +1,47 @@
+﻿@using Project.Models;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>HomePage</title>
+</head>
+
+
+<body>
+    <div>
+        <form method="post" action="ChangeGrades" onsubmit="SetData()">
+            <select name="course" id="course">
+                @foreach (string x in ViewBag.courses)
+                {
+                    <option> @x </option>
+                }
+            </select>
+            <br />
+            ID = <input id="id" name="id" type="text" />
+            <br />
+            <input type="submit" />
+        </form>
+    </div>
+
+</body>
+<style>
+    body {
+        background: url(../images/5.jpg)no-repeat;
+        background-size: cover;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        -ms-background-size: cover;
+        background-attachment: fixed;
+        background-position: center;
+        font-family: 'Open Sans', sans-serif;
+        height: 100vh;
+    }
+</style>
+</html>
+

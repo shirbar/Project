@@ -15,8 +15,11 @@ namespace Project.Models
         public string CourseID { get; set; }
         [Key, Column(Order = 1)]
         public string Moed {get; set;}
-        public string Date { get; set; }
-        public string Hour { get; set; }
+        public int Day { get; set; }
+        public int Month { get; set; }
+        public int Year { get; set;  }
+
+        public TimeSpan Hour { get; set; }
         public string Class { get; set; }
 
     }

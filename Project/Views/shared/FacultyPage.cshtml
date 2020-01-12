@@ -1,8 +1,7 @@
 ﻿
 @{
-    ViewBag.Title = "StudentPage";
+    ViewBag.Title = "LecturerPage";
 }
-
 
 <!DOCTYPE html>
 
@@ -16,7 +15,7 @@
     <style>
         body {
             font-family: Arial, Helvetica, sans-serif;
-            background-image: url('../../images/5.jpg');
+            //background-image: url('../../images/5.jpg');
         }
 
         .navbar {
@@ -80,15 +79,17 @@
         }
     </style>
 </head>
+
 <body>
 
     <div>
-
         <div class="navbar">
-            <a href="#home">Home </a>
-            <a> @Html.ActionLink("My Schedule", "Watch_scheduale", "Student") </a>
-            <a> @Html.ActionLink("My Exams", "Watch_Exams", "Student") </a>
-            <a> @Html.ActionLink("Grades", "Watch_Grades", "Student") </a>
+            <a> @Html.ActionLink("Course Registration", "Cours_Registration", "Faculty") </a>
+            <a> @Html.ActionLink("Edit Grades", "EditOfGrade", "Faculty") </a>
+            <a> @Html.ActionLink("Edit Courses Schedule", "EditSchedualeForm", "Faculty") </a>
+            <a> @Html.ActionLink("Edit Exams Schedule", "ExamsEditForm", "Faculty")</a>
+            <a> @Html.ActionLink("Add Course", "Add_Course_Form", "Faculty")</a>
+
             @{
                 TempData.Keep("loggedUser");
             }
@@ -97,4 +98,5 @@
     </div>
 
 </body>
+
 </html>

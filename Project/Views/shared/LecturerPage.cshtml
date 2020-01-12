@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "StudentPage";
+    ViewBag.Title = "LecturerPage";
 }
 
 
@@ -84,11 +84,10 @@
 
     <div>
 
-        <div class="navbar">
-            <a href="#home">Home </a>
-            <a> @Html.ActionLink("My Schedule", "Watch_scheduale", "Student") </a>
-            <a> @Html.ActionLink("My Exams", "Watch_Exams", "Student") </a>
-            <a> @Html.ActionLink("Grades", "Watch_Grades", "Student") </a>
+        <div class="navbar">        
+            <a> @Html.ActionLink("Scheduale", "Watch_scheduale", "Lecturer") </a>
+            <a> @Html.ActionLink("Lists of students", "Choose_Course", "Lecturer") </a>
+            <a>@Html.ActionLink("Manage Grades", "Edit_Grades", "Lecturer")</a>
             @{
                 TempData.Keep("loggedUser");
             }
